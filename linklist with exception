@@ -187,7 +187,10 @@ class LinkedList{
                   int element=scan.nextInt();
                   list.insertAt(index,element);
                   break;
-          case 3: list.printList();
+          case 3:if(list.isEmpty()){System.out.println("Nothing to display");
+          } else
+        	  list.printList();
+          
                   break;
           case 4: list.delete();
                   break;
