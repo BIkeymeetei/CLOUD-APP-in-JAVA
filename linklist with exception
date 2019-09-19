@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+
 /*Node Class or node of the linked list*/
 class Node{
   int data;
@@ -12,7 +13,7 @@ class Node{
 }
 
 /*Linked list class*/
-class LinkedList{
+class Llist{
   Node head;
 
 /*insert function insert at last index*/
@@ -126,6 +127,28 @@ public void reverse(){
 }
 
 
+public Llist move(Llist list)
+{
+	Node prev=null;
+	Node temp;
+	Node cur;
+	cur=list.head;
+	while(cur.next!=null)
+	{
+		
+		prev=cur;
+		cur=cur.next;
+		
+		
+	}
+	temp=cur;
+	temp.next=head;
+	head=temp;
+	prev.next=null;
+	
+	return list;
+
+}
 /*Printing the LinkedList*/
   public void printList(){
     Node node=head;
@@ -143,13 +166,13 @@ public void reverse(){
 }
 
 /*Main Clss */
-class LinkedListMain{
+class LinkedList{
   public static void main(String[] args){
-      LinkedList list = new LinkedList();
+      Llist list = new Llist();
       Scanner scan = new Scanner(System.in);
       PrintStream ps = new PrintStream(System.out);
       while(true){
-        ps.println("Enter the operations!\n 1. Insert \n 2. Insert At Index \n 3. Display \n 4. Delete From last \n 5. Delet At Index \n 6. Delete At start \n 7. Size \n 8. CheckForEmpty \n 9. Reverse the linkedList \n 10.Exit");
+        ps.println("Enter the operations!\n 1. Insert \n 2. Insert At Index \n 3. Display \n 4. Delete From last \n 5. Delet At Index \n 6. Delete At start \n 7. Size \n 8. CheckForEmpty \n 9. Reverse the linkedList \n 10.Move\n 11.Exit");
 
         int T=scan.nextInt();
         switch(T){
@@ -184,7 +207,14 @@ class LinkedListMain{
           case 9: list.reverse();
                   list.printList();
                   break;
-          case 10: System.exit(0);
+                  
+          case 10:
+				
+				list=list.move(list);
+				System.out.println(" moved successfully ");
+				break;
+				                
+          case 11: System.exit(0);
           default: ps.println("Enter the valid options!");
         }
       }
